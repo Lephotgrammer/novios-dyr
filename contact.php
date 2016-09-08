@@ -1,5 +1,7 @@
 <?php
 
+require_once('phpmailer/class.phpmailer.php');
+
 // Blank message to start with so we can append to it.
 $message = '';
 
@@ -9,32 +11,34 @@ if(empty($_POST['name']) || empty($_POST['email'])){
 }
 
 // Construct the message
-$message .= <<<TEXT
+$message .= ('Nombre '.$_POST['name']); 
+/* $message .= <<<TEXT
     Name: {$_POST['name']}
     Email: {$_POST['email']}
     Number of Guest: {$_POST['numguest']}
     Events: {$_POST['allevents']}
     Attending: {$_POST['attending']}
-TEXT;
+TEXT; */
 
-// Email to send to
-$to = 'stephanny@laboratoria.cl';
+$mail = new PHPMailer();
 
-// Email Subject
-$subject = 'You have been contacted!';
+$mail->IsSMTP();
+$mail->SMTPDebug = 0;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = 'ssl';
 
-// Name to show email from
-$from = 'Your Site';
+$mail->host = 'smtp.google.com';
+$mail->Port = 465;
+$mail->Username = 'matrimonios.info@gmail.com';
+$mail->Password = '987654321s';
 
-// Domain to show the email from
-$fromEmail = 'YourSite@domain.com';
+$mail->SetFrom('matrimonios.info@gmail.com', 'Matrimonios Info');
+$mail->subject = 'Nuevo invitado';
+$mail->Body = $message;
+$mail->AddAddress('stephanny@laboratoria.cl');
 
-// Construct a header to send who the email is from
-$header = 'From: ' . $from . '<' . $fromEmail . '>';
-
-// Try sending the email
-if(!mail($to, $subject, $message, $header)){
-    die('Error sending email.');
-}else{
-    die('Email sent!');
+if(!$mail->Send()) {
+	die('Error '.$mail->ErrorInfo);
+} else {
+	echo "Correo enviado";
 }
