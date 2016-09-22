@@ -48,7 +48,6 @@ jQuery(document).ready(function($){
 			console.log(d);
 			// Here we handle the response from the script
 			// We are just going to alert the result for now
-			alert(d);
 		});
 	});
 });

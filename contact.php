@@ -1,6 +1,6 @@
 <?php
 
-require_once('phpmailer/class.phpmailer.php');
+require 'phpmailer/PHPMailerAutoload.php';
 
 // Blank message to start with so we can append to it.
 $message = '';
@@ -9,32 +9,47 @@ $message = '';
 if(empty($_POST['name']) || empty($_POST['email'])){
     die('Please ensure name and email are provided.');
 }
+$name = $_POST['name'];
+$email = $_POST['email'];
+$numguest = $_POST['numguest'];
+$allevents = $_POST['allevents'];
+$attending = $_POST['attending'];
 
 // Construct the message
-$message .= ('Nombre '.$_POST['name']); 
-/* $message .= <<<TEXT
-    Name: {$_POST['name']}
-    Email: {$_POST['email']}
-    Number of Guest: {$_POST['numguest']}
-    Events: {$_POST['allevents']}
-    Attending: {$_POST['attending']}
-TEXT; */
+//$message .= ('Nombre '.$_POST['name']); 
+$message .= <<<TEXT
+    Name: "$name"
+    Email: "$email"
+    Number of Guest: "$numguest"
+    Events: "$allevents"
+    Attending: "$attending"
+TEXT;
 
-$mail = new PHPMailer();
+$mail = new PHPMailer;
 
 $mail->IsSMTP();
-$mail->SMTPDebug = 0;
-$mail->SMTPAuth = true;
-$mail->SMTPSecure = 'ssl';
+// = 0 in production
+$mail->SMTPDebug = 2;
+//Ask for HTML-friendly debug output
+$mail->Debugoutput = 'html';
 
-$mail->host = 'smtp.google.com';
-$mail->Port = 465;
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+
+//Set the encryption system to use - ssl (deprecated) or tls
+$mail->SMTPSecure = 'tls';
+
+//Whether to use SMTP authentication
+$mail->SMTPAuth = true;
+
+
 $mail->Username = 'matrimonios.info@gmail.com';
 $mail->Password = '987654321s';
-
 $mail->SetFrom('matrimonios.info@gmail.com', 'Matrimonios Info');
-$mail->subject = 'Nuevo invitado';
 $mail->Body = $message;
+
+$mail->Subject = 'Nuevo invitado';
+
 $mail->AddAddress('stephanny@laboratoria.cl');
 
 if(!$mail->Send()) {
@@ -42,3 +57,4 @@ if(!$mail->Send()) {
 } else {
 	echo "Correo enviado";
 }
+$hola = "kck";
