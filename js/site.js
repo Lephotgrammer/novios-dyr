@@ -222,13 +222,13 @@ jQuery(document).ready(function($){
 // Countdown
 jQuery(document).ready(function($){
 	'use strict';
-	var weddingDate = new Date();
+	/*var weddingDate = new Date();
 	var weddingDate = new Date(weddingDate.getFullYear() + 1, 1 - 1, 1);
 	$(".countdown").countdown({
 		until: new Date(2016, 12-9, 18),
 		padZeroes: true,
 		format: 'ODHMS'
-	});
+	});*/
 });
 
 // Smooth Slider
