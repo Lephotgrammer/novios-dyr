@@ -46,6 +46,7 @@ jQuery(document).ready(function($){
 			attending: $('#attending').val()
 		}, function(d){
 			console.log(d);
+			$('#confirm_alert').removeClass('hide');
 			// Here we handle the response from the script
 			// We are just going to alert the result for now
 		});
