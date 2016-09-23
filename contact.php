@@ -44,7 +44,7 @@ $mail->Body = $message;
 
 $mail->Subject = 'Nuevo invitado';
 
-$mail->AddAddress('stephanny@laboratoria.cl');
+$mail->AddAddress('denniszunig@gmail.com');
 
 if(!$mail->Send()) {
 	die('Error '.$mail->ErrorInfo);
