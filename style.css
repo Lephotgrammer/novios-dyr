@@ -269,7 +269,9 @@ font-size:100px;
 	line-height:40px;
 	}
 
-
+.two{
+	margin-top: 20px; 
+}
 .flexslider{
 	margin:0;
 	}
@@ -991,7 +993,7 @@ a.ui-icon-pause:hover{
 display : none;
 }
 .photo_gallery_sec{
-padding-bottom:0px;
+padding-bottom: 100px;
 }
 .photo_gallery_sec .container-fluid{
 padding-left:0px;	
@@ -1495,11 +1497,12 @@ margin-bottom:0px;
 .social_icons.fl_left a {
 margin-right : 10px;
 }
+
 section.rsvp_sec {
-background : url(img/map-image.jpg) no-repeat 100% 100%;
+background : no-repeat 100% 100%;
 height : auto;
 }
-
+*/
 .form_wrapper{
 text-align:center;	
 }
@@ -1647,8 +1650,8 @@ color : #fff;
 width : 47%;
 max-width:175px;
 height : 36px;
-font-size:15px;
-margin-left:30px;
+font-size: 15px;
+margin-left: 25%;
 background : #DB4766;
 color : #ffffff;
 border : none;
@@ -1778,10 +1781,6 @@ footer .social_icons li a:hover{
 	float:left;
 	}
 	
-/*
-http://tympanus.net/Development/GridNavigationEffects/example5.html	
-	
-*/
 .mix{
 	display:none;
 	}
@@ -1801,10 +1800,6 @@ http://tympanus.net/Development/GridNavigationEffects/example5.html
    color: #696969;  
 }
 
-
-/* Blog Section */
-/* Blog Section */
-/* Blog Section */
 /* Blog Section */
 header.blog_header{
 	background:url(img/placehold/blog-bg.png) no-repeat;
@@ -3405,7 +3400,7 @@ div.timeline_img:hover .inner-extra p{
 	width: 100%;
 	float:left;
 	display:block;
-	/* padding: 252px 0px 398px 0px; */
+	padding: 252px 0px 670px 0px;
 	}
 .three-ind section.main-slider{
 	padding-top:0;

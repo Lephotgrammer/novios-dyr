@@ -11,18 +11,12 @@ if(empty($_POST['name']) || empty($_POST['email'])){
 }
 $name = $_POST['name'];
 $email = $_POST['email'];
-$numguest = $_POST['numguest'];
-$allevents = $_POST['allevents'];
-$attending = $_POST['attending'];
 
 // Construct the message
 //$message .= ('Nombre '.$_POST['name']); 
 $message .= <<<TEXT
     Name: "$name"
     Email: "$email"
-    Number of Guest: "$numguest"
-    Events: "$allevents"
-    Attending: "$attending"
 TEXT;
 
 $mail = new PHPMailer;
